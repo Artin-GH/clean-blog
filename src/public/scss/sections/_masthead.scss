@@ -1,0 +1,105 @@
+header.masthead {
+    position: relative;
+    padding-top: calc(8rem + 57px);
+    padding-bottom: 8rem;
+
+    background: no-repeat center center;
+    background-color: $gray-600;
+    background-size: cover;
+    background-attachment: scroll;
+
+    .page-heading-highlight {
+        color: lighten($primary, 30%);
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $overlay-background;
+        opacity: $overlay-opacity;
+    }
+
+
+    .page-heading,
+    .post-heading,
+    .site-heading {
+        color: $white;
+    }
+
+
+    .page-heading,
+    .site-heading {
+        text-align: center;
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        .subheading {
+            font-size: 1.5rem;
+            font-weight: 300;
+            line-height: 1.1;
+            display: block;
+            margin-top: 0.625rem;
+            font-family: $headings-font-family;
+        }
+    }
+
+
+    .post-heading {
+        h1 {
+            font-size: 2.25rem;
+        }
+
+        .meta,
+        .subheading {
+            line-height: 1.1;
+            display: block;
+        }
+
+        .subheading {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0.75rem 0 2rem;
+            font-family: $headings-font-family;
+        }
+
+        .meta {
+            font-size: 1.25rem;
+            font-weight: 300;
+            font-style: italic;
+            font-family: $font-family-base;
+
+            a {
+                color: $white;
+            }
+        }
+    }
+
+
+    @include media-breakpoint-up(lg) {
+        padding-top: 12.5rem;
+        padding-bottom: 12.5rem;
+
+        .page-heading,
+        .site-heading {
+            h1 {
+                font-size: 5rem;
+            }
+        }
+
+        .post-heading {
+            h1 {
+                font-size: 3.5rem;
+            }
+
+            .subheading {
+                font-size: 1.875rem;
+            }
+        }
+    }
+}

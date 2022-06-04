@@ -1,0 +1,6 @@
+form.needs-validation.w-max-con(novalidation, action=`/${formAction}#main` method="GET")
+  .input-group.mx-auto.w-max-con
+    input.form-control.rounded-start(
+      type="search" placeholder="Search..." name="title" value=query.title)
+    button.rounded-end(type="submit").btn.btn-primary
+      i.fa-solid.fa-magnifying-glass

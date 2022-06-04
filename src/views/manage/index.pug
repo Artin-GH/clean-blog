@@ -1,0 +1,58 @@
+doctype html
+html(lang='en')
+
+  head
+
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description' content='')
+    meta(name='author' content='')
+
+    title Clean Blog - (Project - X)
+
+    link(rel='icon' type='image/x-icon' href='assets/favicon.ico')
+
+    include ../_includes/css.pug
+
+  body
+
+    include ../_includes/navbar.pug
+
+    header.masthead(style="background-image: url('assets/img/home-bg.jpg'); margin-bottom: 1rem")
+      .container.position-relative.px-4.px-lg-5
+        .row.gx-4.gx-lg-5.justify-content-center
+          .col-md-10.col-lg-8.col-xl-7
+            .site-heading
+              h1 Manage Posts
+              span.subheading Add, edit or delete posts!!!
+
+    .container.px-4.px-lg-5#main
+      .row.gx-4.gx-lg-5.justify-content-center
+        .col-12
+          .d-flex.justify-content-center.flex-wrap(style="margin-bottom: 2rem")
+            - const formAction = 'manage';
+            include ../_includes/post-search-form.pug
+
+            a(href="manage/addpost"
+            ).btn.btn-primary.d-block.w-max-con.ms-auto.rounded ADD POST
+          .row.row-cols-md-2.row-cols-1
+            each post in posts
+              .col.post-preview.d-flex.flex-column
+                a(href=postRefUrl(post._id))
+                  h3.post-title.mt-0= post.title
+                  h3.post-subtitle= post.subtitle
+                .post-meta.my-auto
+                  | Posted by 
+                  a(href="/") Clean Blog 
+                  | on #{formatDate(post.date)}
+                .btn-group.mt-4.w-max-con
+                  a(href="manage/edit/" + post._id).btn.btn-primary.px-3.py-1.text-light.fs-6
+                    i.fa-solid.fa-pen
+                  a(href="manage/delete/" + post._id
+                  ).btn.btn-secondary.px-3.py-1.text-light.fs-6
+                    i.fa-solid.fa-trash-can
+                hr.mb-4
+
+    include ../_includes/footer.pug
+
+    include ../_includes/scripts.pug

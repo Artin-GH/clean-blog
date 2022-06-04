@@ -1,0 +1,58 @@
+form(
+  class="needs-validation"
+  novalidate
+  action=postVals.formAction
+  method="POST"
+  enctype="multipart/form-data"
+)
+  div
+    - let text = (postVals.pic || "").split('/');
+    - text = text[text.length - 1];
+    pre#pre-file-name.m-0
+      |Was 
+      span.text-primary= text
+    img#img(src=postVals.pic width="350" style="max-width: 100vh")
+    .d-flex
+      label#file-label.w-max-con.d-flex.align-items-center.px-3.py-2.btn.btn-primary(for="picture")
+        i.fa-solid.fa-image.fs-4
+        span.fs-6#file-name &nbsp;No file choosen
+        input#file-input.d-none(
+          type="file"
+          name="picture"
+          accept="image/png, image/jpg, image/jpeg"
+        )
+      button#del-btn(type="button").btn.btn-secondary.p-2
+        i.fa-solid.fa-xmark
+  .form-floating
+    input.form-control(
+      type='text',
+      placeholder='Enter the title...',
+      name="title",
+      required
+      value=postVals.title
+    )
+    label(for='title') Title
+    .invalid-feedback
+      | Title is required.
+  .form-floating
+    input.form-control(
+      type='text',
+      placeholder='Enter the subtitle...',
+      name="subtitle",
+      value=postVals.subtitle
+    )
+    label(for='subtitle') Subtitle
+  .form-floating
+    textarea.form-control(
+      placeholder='Enter the content...',
+      style='height: 12rem;',
+      name="content",
+      required
+    )= postVals.content
+    label(for='content') Content
+    .invalid-feedback
+      | Content is required.
+
+  br
+
+  button.btn.btn-primary.text-uppercase(type='submit')= postVals.submit

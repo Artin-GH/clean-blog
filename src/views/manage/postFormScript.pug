@@ -1,0 +1,29 @@
+script.
+  const fileInput = document.getElementById('file-input');
+  const fileLabel = fileInput.parentElement;
+  const fileImg = document.getElementById('img');
+  const fileName = document.getElementById('file-name');
+  const preFileName = document.getElementById('pre-file-name');
+  const delBtn = document.getElementById('del-btn');
+
+  fileInput.onchange = (event) => {
+    let file = event.target.files[0];
+    fileName.innerHTML = '&nbsp;' + file.name;
+    reader.readAsDataURL(file);
+    preFileName.classList.add('d-none');
+  };
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    fileImg.src = e.target.result;
+    fileImg.width='350';
+  };
+
+  fileLabel.onclick = () => {
+    fileInput.click()
+  };
+
+  delBtn.onclick = () => {
+    fileInput.files = new DataTransfer().files;
+    fileImg.width = 0;
+    fileName.innerHTML = '&nbsp;' + 'No file choosen'
+  }

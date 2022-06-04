@@ -1,0 +1,93 @@
+doctype html
+html(lang='en')
+
+  head
+
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description' content='')
+    meta(name='author' content='')
+
+    title Clean Blog - (Project - X)
+
+    link(rel='icon' type='image/x-icon' href='assets/favicon.ico')
+
+    include _includes/css.pug
+
+  body
+
+    include _includes/navbar.pug
+
+    header.masthead(style="background-image: url('assets/img/sign-bg.jpg')")
+      .container.position-relative.px-4.px-lg-5
+        .row.gx-4.gx-lg-5.justify-content-center
+          .col-md-10.col-lg-8.col-xl-7
+            .page-heading
+              h1 Contact Us
+              span.subheading Send us your message or report!
+
+    main.mb-4
+      .container.px-4.px-lg-5
+        .row.gx-4.gx-lg-5.justify-content-center
+          .col-md-10.col-lg-8.col-xl-7
+            p
+              | Fill the form below to send your message to 
+              span.text-primary Clean Blog 
+              | (us).
+
+            .my-5
+
+              form.needs-validation(
+                novalidate
+                action="/posts/test"
+                method="POST"
+              )
+                .form-floating
+                  input.form-control(
+                    type='text',
+                    placeholder='Enter your name...',
+                    name="name",
+                    required
+                  )
+                  label(for='name') Name
+                  .invalid-feedback
+                    | Name is required.
+                .form-floating
+                  input.form-control(
+                    type='email',
+                    placeholder='Enter your email...',
+                    name="email",
+                    required
+                  )
+                  label(for='email') Email
+                  .invalid-feedback
+                    | Email is not valid.
+                .form-floating
+                  input.form-control(
+                    type='phone',
+                    placeholder='Enter your phone number...',
+                    name="phone",
+                    required
+                  )
+                  label(for='phone') Phone Number
+                  .invalid-feedback
+                    | Phone number is required.
+                .form-floating
+                  textarea.form-control(
+                    placeholder='Enter your message...',
+                    style='height: 12rem;',
+                    name="message",
+                    type="test"
+                    required
+                  )
+                  label(for='message') Message
+                  .invalid-feedback
+                    | Message is required.
+
+                br
+
+                button.btn.btn-primary.text-uppercase(type='submit') Send
+
+    include _includes/footer.pug
+
+    include _includes/scripts.pug

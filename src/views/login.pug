@@ -1,0 +1,77 @@
+doctype html
+html(lang='en')
+
+  head
+
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description' content='')
+    meta(name='author' content='')
+
+    title Clean Blog - (Project - X)
+
+    link(rel='icon' type='image/x-icon' href='assets/favicon.ico')
+
+    include _includes/css.pug
+
+  body
+
+    include _includes/navbar.pug
+
+    header.masthead(style="background-image: url('assets/img/sign-bg.jpg')")
+      .container.position-relative.px-4.px-lg-5
+        .row.gx-4.gx-lg-5.justify-content-center
+          .col-md-10.col-lg-8.col-xl-7
+            .page-heading
+              h1
+                | Login to 
+                span.page-heading-highlight Here
+              span.subheading
+                | Login to your 
+                span.page-heading-highlight Clean Blog 
+                | account.
+
+    main.mb-4
+      .container.px-4.px-lg-5
+        .row.gx-4.gx-lg-5.justify-content-center
+          .col-md-10.col-lg-8.col-xl-7
+            p
+              | Fill the form below to login to your 
+              span.text-primary Clean Blog 
+              | account.
+
+            .my-5
+
+              form.needs-validation(
+                novalidate
+                action="/posts/test"
+                method="POST"
+              )
+                .form-floating
+                  input.form-control(
+                    type='text',
+                    placeholder='Enter your username or email...',
+                    name="email",
+                    required
+                  )
+                  label(for='email') Username or Email
+                  .invalid-feedback
+                    | Username or Email is not valid.
+                .form-floating
+                  input.form-control(
+                    type='password',
+                    placeholder='Enter your password...',
+                    name="password",
+                    required
+                  )
+                  label(for='password') Password
+                  .invalid-feedback
+                    | Password is not valid.
+
+                br
+
+                button.btn.btn-primary.text-uppercase(type='submit') Login
+
+    include _includes/footer.pug
+
+    include _includes/scripts.pug

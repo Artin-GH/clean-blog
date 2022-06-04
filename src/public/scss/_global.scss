@@ -1,0 +1,27 @@
+body {
+    font-size: $font-size-lg;
+}
+
+
+hr {
+    background-color: $border-color;
+    opacity: 1;
+}
+
+
+p {
+    margin: 2rem 0;
+
+    a {
+        text-decoration: underline;
+    }
+}
+
+blockquote {
+    font-style: italic;
+    color: $gray-600;
+}
+
+.w-max-con {
+    width: max-content !important;
+}

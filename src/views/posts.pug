@@ -1,0 +1,44 @@
+doctype html
+html(lang='en')
+
+  head
+
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description' content='')
+    meta(name='author' content='')
+
+    title Clean Blog - (Project - X)
+
+    link(rel='icon' type='image/x-icon' href='assets/favicon.ico')
+
+    include _includes/css.pug
+
+  body
+
+    include _includes/navbar.pug
+
+    header.masthead(style="background-image: url('/assets/img/home-bg.jpg')")
+      .container.position-relative.px-4.px-lg-5
+        .row.gx-4.gx-lg-5.justify-content-center
+          .col-md-10.col-lg-8.col-xl-7
+            .site-heading
+              h1 All Posts
+              span.subheading You can find all posts here!
+
+    #main
+
+    .mt-3.mx-auto.w-max-con
+      - const formAction = 'posts';
+      include _includes/post-search-form.pug
+
+    .container.px-4.px-lg-5
+      .row.gx-4.gx-lg-5.justify-content-center
+        .col-md-10.col-lg-8.col-xl-7
+
+          include _includes/post-pres.pug
+
+
+    include _includes/footer.pug
+
+    include _includes/scripts.pug

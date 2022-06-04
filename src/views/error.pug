@@ -1,0 +1,17 @@
+doctype html
+html(lang='en')
+
+  head
+
+    meta(charset='utf-8')
+    title Clean Blog - (Project - X)
+
+    link(rel='icon' type='image/x-icon' href='assets/favicon.ico')
+
+    include _includes/css.pug
+
+  body
+
+    h1= error.message
+    h2= error.status
+    pre #{error.stack}

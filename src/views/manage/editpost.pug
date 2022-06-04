@@ -1,0 +1,47 @@
+doctype html
+html(lang='en')
+
+  head
+
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description' content='')
+    meta(name='author' content='')
+
+    title Clean Blog - (Project - X)
+
+    link(rel='icon' type='image/x-icon' href='assets/favicon.ico')
+
+    include ../_includes/css.pug
+
+  body
+
+    include ../_includes/navbar.pug
+
+    header.masthead(style="background-image: url('/assets/img/sign-bg.jpg')")
+      .container.position-relative.px-4.px-lg-5
+        .row.gx-4.gx-lg-5.justify-content-center
+          .col-md-10.col-lg-8.col-xl-7
+            .page-heading
+              h1 Edit the post
+              span.subheading
+                | Edit the selected post in 
+                span.page-heading-highlight Clean Blog.
+
+    main.mb-4
+      .container.px-4.px-lg-5
+        .row.gx-4.gx-lg-5.justify-content-center
+          .col-md-10.col-lg-8.col-xl-7
+            p
+              | Fill the form below to edit the post in 
+              span.text-primary Clean Blog.
+
+            .my-5
+
+              - const postVals = {title: post.title, subtitle: post.subtitle, content: post.content, pic: post.pictureUrl, formAction: "/manage/edit/" + post._id, submit: 'Edit'};
+              include postForm.pug
+
+    include ../_includes/footer.pug
+
+    include ../_includes/scripts.pug
+    include ./postFormScript.pug
